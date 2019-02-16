@@ -6,6 +6,39 @@
 <body>
 	<h1>Hello, world!!!</h1>
 	<p>16/02/2019</p>
+	<style>
+		.color1{background-color: red; }
+		.color2{background-color: blue; }
+		.color3{background-color: pink; }
+		.color4{background-color: yellow; }
+		.color5{background-color: green; }
+	</style>
+	<div class="box color1" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
+	<div class="box color2" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
+	<div class="box color3" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
+	<div class="box color4" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
+	<div class="box color5" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
+
+	<script type="text/javascript">
+		let boxes = document.querySelectorAll(".box");
+		for (let i = 0; i < boxes.length; i++){
+			boxes[i].addEventListener('click', changeBg)
+		};
+		
+		function changeBg() {
+			console.dir(this);
+			let targetColor = this.className;
+			let secondColor = this.nextElementSibling.className;
+			console.log(targetColor, secondColor);
+			this.className = secondColor;
+    		this.nextElementSibling.className = targetColor;
+    		console.log(targetColor, secondColor)
+    		// через includes
+		   
+		}
+
+	</script>
+
 
 </body>
 </html>
