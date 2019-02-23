@@ -12,12 +12,13 @@
 		.color3{background-color: pink; }
 		.color4{background-color: yellow; }
 		.color5{background-color: green; }
+		.box{width: 100px; height: 100px; margin: 5px; display: inline-block; }
 	</style>
-	<div class="box color1" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
-	<div class="box color2" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
-	<div class="box color3" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
-	<div class="box color4" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
-	<div class="box color5" style="width: 100px; height: 100px; margin: 5px; display: inline-block;"></div>
+	<div class="box color1"></div>
+	<div class="box color2"></div>
+	<div class="box color3"></div>
+	<div class="box color4"></div>
+	<div class="box color5"></div>
 
 	<script type="text/javascript">
 		let boxes = document.querySelectorAll(".box");
@@ -29,13 +30,18 @@
 			console.dir(this);
 			let targetColor = this.className;
 			let secondColor = this.nextElementSibling.className;
-			console.log(targetColor, secondColor);
-			this.className = secondColor;
-    		this.nextElementSibling.className = targetColor;
-    		console.log(targetColor, secondColor)
-    		// через includes
-		   
-		}
+			// console.log(targetColor, secondColor);
+			// console.log(this.className);
+			if (this === boxes[boxes.length-1]) {
+				this.className = boxes[0].className;
+				boxes[0].className = targetColor;
+			}
+			else {
+				this.className = secondColor;
+	    		this.nextElementSibling.className = targetColor;
+	    	}
+    		// console.log(targetColor, secondColor)
+    	}
 
 	</script>
 
